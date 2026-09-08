@@ -1,0 +1,95 @@
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 240 9% 4%;
+        --foreground: 240 5% 96%;
+        --card: 230 11% 8%;
+        --card-foreground: 240 5% 96%;
+        --popover: 230 11% 8%;
+        --popover-foreground: 240 5% 96%;
+        --primary: 32 95% 44%;
+        --primary-foreground: 240 9% 4%;
+        --secondary: 228 12% 11%;
+        --secondary-foreground: 240 5% 96%;
+        --muted: 228 12% 11%;
+        --muted-foreground: 240 5% 65%;
+        --accent: 32 95% 44%;
+        --accent-foreground: 240 9% 4%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 226 14% 17%;
+        --input: 226 14% 17%;
+        --ring: 32 95% 44%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color-scheme: dark;
+    }
+    ::selection {
+        background: #D97706;
+        color: #0A0A0C;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0A0A0C;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #272A35;
+        border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #D97706;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin: inherit;
+        padding: inherit;
+        gap: inherit;
+        border: inherit;
+    }
+}
+
+.font-display {
+    font-family: 'Cabinet Grotesk', 'Manrope', sans-serif;
+}
+
+.text-outline {
+    -webkit-text-stroke: 1px rgba(244, 244, 245, 0.08);
+    color: transparent;
+}
+
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

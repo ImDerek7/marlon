@@ -1,0 +1,149 @@
+{
+  "theme_and_concept": {
+    "theme": "Dark Theme (Luxury/Premium Archetype)",
+    "vibe": "Premium, craftsman-like, reliable, clean, modern, quality. Awwwards-level execution for a tradesman company.",
+    "concept": "The Anti-AI Tradesman. Forget cheap blue and white contractor templates. We use deep anthracite, gold accents, and high-end editorial typography to frame MAFER as a premium service. The site should feel like an elite architecture studio rather than a standard cleaning/painting service."
+  },
+  "colors": {
+    "background": {
+      "base": "#0A0A0C",
+      "surface": "#121316",
+      "surface_raised": "#1A1C23",
+      "surface_overlay": "#272A35"
+    },
+    "text": {
+      "primary": "#F4F4F5",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "brand": {
+      "accent": "#D97706",
+      "accent_hover": "#F59E0B",
+      "accent_muted": "rgba(217, 119, 6, 0.15)"
+    },
+    "borders": {
+      "subtle": "#272A35",
+      "focus": "#D97706"
+    },
+    "rules": [
+      "Use layer elevation instead of shadows. Each surface should be slightly lighter than the layer below it.",
+      "CRITICAL: DO NOT use complete transparent background in header, overlays, or any surface that has content under it. Example: Dropdown with transparent background is banned. Use solid surface colors or heavy backdrop blur (e.g., bg-[#121316]/90 backdrop-blur-xl).",
+      "Ensure 4.5:1 contrast for normal text and 3:1 for large text.",
+      "Buttons MUST have clear hover states that increase lightness."
+    ]
+  },
+  "typography": {
+    "heading_font": "Cabinet Grotesk, Outfit, or Clash Display",
+    "body_font": "Manrope or Plus Jakarta Sans",
+    "rules": [
+      "Do NOT use Inter, Roboto, or Open Sans for headings.",
+      "Use fluid scaling for heroes. Max heading size text-5xl sm:text-6xl md:text-7xl. DO NOT exceed this.",
+      "Tight letter spacing on headings (tracking-tight or tracking-tighter).",
+      "Add overlines/labels that are Uppercase + Tiny + Wide Spacing (tracking-[0.2em])."
+    ],
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-white",
+      "h2": "text-4xl sm:text-5xl font-semibold tracking-tight text-white",
+      "h3": "text-2xl sm:text-3xl font-medium tracking-tight text-gray-100",
+      "body": "text-base sm:text-lg text-gray-400 leading-relaxed",
+      "label": "text-xs font-bold uppercase tracking-[0.2em] text-[#D97706]"
+    }
+  },
+  "layouts_and_grids": {
+    "spacing_system": "Generous Spacing Philosophy. Use 2-3x more spacing. Containers with borders MUST have internal padding (p-6 or p-8). Use py-24 or py-32 for section spacing.",
+    "services_grid": "Use a Bento Grid approach. Asymmetrical. col-span-full md:col-span-8 for the main service, col-span-4 for the others.",
+    "alignment": "Optical alignment over geometrical. Left-align text for better readability, never center everything blindly."
+  },
+  "motion_and_interactions": {
+    "scroll": "MUST use 'lenis' for smooth scrolling to give the site premium momentum.",
+    "hero": "Kinetic hero with masked line-by-line reveal using Framer Motion.",
+    "marquee": "One slow editorial marquee for the 'Další řemeslné práce' or 'Reviews'. Use 'react-fast-marquee'.",
+    "micro_interactions": "Hover states on all cards to subtly lift (-translate-y-1) and reveal a 1px border of the accent color.",
+    "slider": "Draggable Before/After comparison slider (custom built with Framer Motion or a dedicated library)."
+  },
+  "component_instructions": {
+    "navigation": "Sticky header (z-50). Must have a solid or heavy blur background (bg-[#0A0A0C]/80 backdrop-blur-md). Includes Logo, links, and ZAVOLAT (Call) CTA.",
+    "hero_section": "Dual CTA (Nezávazně poptat, Zavolat), big background photo of craftsman with overlay (bg-black/40 or gradient), Trust Badge (e.g., '10+ Years Experience').",
+    "services_section": "3 Main Cards (Malířské práce, Úklidové služby, Vyklízecí práce). Use dark UI cards with an icon, large title, and subtle hover effects.",
+    "why_choose_us": "5 icon points. Layout in an asymmetrical grid or staggered list.",
+    "gallery_section": "Masonry grid with categories + fullscreen lightbox. (Use 'react-photo-album' + 'yet-another-react-lightbox').",
+    "process_section": "4 Steps. Numbered manifesto chapters with vertical connecting lines.",
+    "reviews_section": "Card carousel or slow marquee. Dark surfaces.",
+    "contact_form": "Shadcn Form. Fields: Name, Phone, Email, Service Dropdown, Location, Date, Description, File Upload, GDPR Checkbox.",
+    "mobile_sticky_cta": "Fixed bottom bar on mobile viewports only, with quick action to call or get a quote.",
+    "footer": "Company info, IČO 17693021, big 'LET'S TALK' text at 10vw, GDPR links. Footer background must contrast slightly with the section above it."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1645564977352-10a805bbdc1b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwxfHxwYWludGVyJTIwY3JhZnRzbWFuJTIwcG9ydHJhaXQlMjBkYXJrfGVufDB8fHx8MTc4ODg0ODc3Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Premium dark portrait of a craftsman, perfect for the hero background with a heavy gradient overlay.",
+      "category": "hero"
+    },
+    "service_painting": {
+      "url": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxwYWludCUyMGJydXNoJTIwcm9sbGVyJTIwd2FsbCUyMGRhcmt8ZW58MHx8fHwxNzg4ODQ4Nzg2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Paint roller applying blue paint, clean and modern.",
+      "category": "services"
+    },
+    "service_cleaning": {
+      "url": "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZyUyMGx1eHVyeSUyMGhvbWV8ZW58MHx8fHwxNzg4ODQ4NzcyfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Spotless luxury living room, perfect for the cleaning service card.",
+      "category": "services"
+    },
+    "service_clearance": {
+      "url": "https://images.unsplash.com/photo-1663625318264-695d2d04f11a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwyfHxtb3ZpbmclMjBib3hlcyUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4ODg0ODc4Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Moving boxes stacked near a window, dark and moody.",
+      "category": "services"
+    },
+    "gallery_interiors": [
+      {
+        "url": "https://images.unsplash.com/photo-1625585598750-3535fe40efb3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHw0fHxwcmVtaXVtJTIwbWluaW1hbGlzdCUyMGludGVyaW9yJTIwcGFpbnRpbmclMjBlbXB0eSUyMHJvb218ZW58MHx8fHwxNzg4ODQ4NzcyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Freshly painted room with a ladder, minimalist.",
+        "category": "gallery"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1628744876497-eb30460be9f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZyUyMGx1eHVyeSUyMGhvbWV8ZW58MHx8fHwxNzg4ODQ4NzcyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Cleaned modern living room.",
+        "category": "gallery"
+      }
+    ]
+  },
+  "libraries_to_install": [
+    "framer-motion",
+    "lucide-react",
+    "react-fast-marquee",
+    "@studio-freight/react-lenis",
+    "react-photo-album",
+    "yet-another-react-lightbox",
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "universal_guidelines_for_main_agent": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur), but never fully transparent backgrounds over dynamic content.",
+    "You MUST NOT apply universal transition. Eg: 'transition: all'. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add '.App { text-align: center; }' in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, custom cursors, selection states, and loading animations separate good from extraordinary."
+  ],
+  "general_ui_ux_design_guidelines": [
+    "Mobile-first responsive grids.",
+    "Optical alignment over geometrical alignment.",
+    "Ensure contrast ratios are met (4.5:1 for body, 3:1 for large text).",
+    "Explicit hover and focus states for all interactive elements (e.g., hover:bg-slate-800 hover:text-white). Focus states must have HIGHER contrast.",
+    "Use a single, distinctive art direction throughout.",
+    "Limit the use of the primary brand color (gold) to actionable CTAs and key highlights to maintain its power."
+  ],
+  "data_testid_rules": [
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing.",
+    "Use kebab-case, role-based naming conventions (e.g., data-testid='hero-cta-button', data-testid='contact-form-submit')."
+  ]
+}
