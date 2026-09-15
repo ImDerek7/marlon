@@ -2,11 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, ArrowDown, ShieldCheck, MapPin } from "lucide-react";
 import { CONTACT, IMAGES } from "@/data/content";
 
-const LINES = [
-  "Profesionální malířské,",
-  "úklidové a vyklízecí",
-  "práce v Praze.",
-];
+const LINES = ["Malování, úklid", "a vyklízení", "bez starostí."];
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -14,7 +10,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 500], [1, 0.35]);
 
   return (
-    <section id="uvod" data-testid="hero-section" className="relative min-h-[100svh] flex items-end overflow-hidden">
+    <section id="uvod" data-testid="hero-section" className="relative min-h-[92svh] flex items-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
         <img
           src={IMAGES.hero}
@@ -29,7 +25,7 @@ const Hero = () => {
         style={{ background: "linear-gradient(to top, #0A0A0C 4%, rgba(10,10,12,0.25) 45%, rgba(10,10,12,0.45) 100%)" }}
       />
 
-      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pb-24 md:pb-32 pt-40">
+      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 py-32">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,13 +48,7 @@ const Hero = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.9, delay: 0.25 + i * 0.13, ease: [0.22, 1, 0.36, 1] }}
               >
-                {i === 2 ? (
-                  <>
-                    práce <span className="text-[#D97706]">v Praze.</span>
-                  </>
-                ) : (
-                  line
-                )}
+                {i === 2 ? <span className="text-[#D97706]">{line}</span> : line}
               </motion.span>
             </span>
           ))}
@@ -71,8 +61,8 @@ const Hero = () => {
           transition={{ delay: 0.75, duration: 0.7 }}
           className="mt-6 max-w-xl text-base sm:text-lg text-[#D4D4D8] leading-relaxed"
         >
-          Postaráme se o váš interiér od přípravy až po finální úklid. Kvalitní
-          práce, férová komunikace a spolehlivý přístup.
+          MAFER – profesionální služby pro váš byt, dům i další prostory v Praze
+          a okolí.
         </motion.p>
 
         <motion.div
@@ -82,20 +72,20 @@ const Hero = () => {
           className="mt-10 flex flex-col sm:flex-row gap-4"
         >
           <a
-            href="#kontakt"
-            data-testid="hero-cta-quote"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D97706] hover:bg-[#F59E0B] text-[#0A0A0C] font-extrabold text-sm uppercase tracking-wider px-9 py-4 transition-colors"
-          >
-            Nezávazně poptat
-            <ArrowDown size={16} strokeWidth={2.5} />
-          </a>
-          <a
             href={CONTACT.phoneHref}
             data-testid="hero-cta-call"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-[#0A0A0C]/40 backdrop-blur-md hover:border-[#D97706] hover:text-[#F59E0B] text-white font-extrabold text-sm uppercase tracking-wider px-9 py-4 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D97706] hover:bg-[#F59E0B] text-[#0A0A0C] font-extrabold text-sm uppercase tracking-wider px-9 py-4 transition-colors"
           >
             <Phone size={16} strokeWidth={2.5} />
-            Zavolat · {CONTACT.phone}
+            Zavolat MAFER
+          </a>
+          <a
+            href="#kontakt"
+            data-testid="hero-cta-quote"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-[#0A0A0C]/40 backdrop-blur-md hover:border-[#D97706] hover:text-[#F59E0B] text-white font-extrabold text-sm uppercase tracking-wider px-9 py-4 transition-colors"
+          >
+            Nezávazná poptávka
+            <ArrowDown size={16} strokeWidth={2.5} />
           </a>
         </motion.div>
 
@@ -106,7 +96,7 @@ const Hero = () => {
           className="mt-10 flex items-center gap-2 text-[#A1A1AA] text-sm"
         >
           <MapPin size={15} className="text-[#D97706]" />
-          {CONTACT.area}
+          {CONTACT.phone} · {CONTACT.area}
         </motion.div>
       </motion.div>
     </section>

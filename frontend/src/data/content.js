@@ -9,7 +9,7 @@ export const CONTACT = {
   ico: "17693021",
   address: "Sokolovská 971/193, Praha 9 – Libeň, 190 00",
   area: "Praha a okolí",
-  facebook: "", // TODO: doplnit odkaz na Facebook profil
+  facebook: "https://www.facebook.com/matisek.ferenc",
   profiles: {
     firemniProfil: "https://www.firemniprofil.cz/firma/42305601/matyas-ferenc",
     nejRemeslnici: "https://www.nejremeslnici.cz/profil/421487-matyas-ferenc",
@@ -33,7 +33,7 @@ export const SERVICES_MAIN = [
     slug: "malarske-prace",
     icon: "PaintRoller",
     title: "Malířské práce",
-    desc: "Malování bytů, domů i komerčních prostor. Od přípravy povrchu po finální nátěr – čistě a precizně.",
+    desc: "Malování interiérů a exteriérů, betonové stěrky a odstranění plísní.",
     image: IMAGES.painting,
     items: [
       "Malování interiérů",
@@ -47,7 +47,7 @@ export const SERVICES_MAIN = [
     slug: "uklidove-sluzby",
     icon: "Sparkles",
     title: "Úklidové služby",
-    desc: "Jednorázové i pravidelné úklidy bytů, domů a nebytových prostor. Také generální úklid po rekonstrukci.",
+    desc: "Úklidy bytů, domů, nebytových prostor, dlouhodobé i generální úklidy.",
     image: IMAGES.cleaning,
     items: [
       "Úklid bytů a domů",
@@ -62,7 +62,7 @@ export const SERVICES_MAIN = [
     slug: "vyklizeci-a-stehovaci-prace",
     icon: "Truck",
     title: "Vyklízecí a stěhovací práce",
-    desc: "Vyklízení bytů, domů, sklepů i půd včetně odvozu nepotřebných věcí a pomoci se stěhováním.",
+    desc: "Vyklízení bytů, domů, sklepů a dalších prostor.",
     image: IMAGES.clearance,
     items: [
       "Vyklízení bytů a domů",
@@ -166,8 +166,34 @@ export const PROCESS_STEPS = [
   },
 ];
 
-// Skutečné recenze z veřejných profilů – doplňujte ručně sem.
-export const REVIEWS = [];
+// Skutečné recenze převzaté z veřejného firemního profilu (Firemniprofil.cz).
+export const REVIEWS = [
+  {
+    name: "Roman Č.",
+    text: "Dlouho jsme hledali řemeslníka / lakýrníka, který by nám pomohl s natřením dveří. Komunikace a přístup pana Ference byl perfektní. Vše proběhlo včas a podle domluvy. Mohu doporučit.",
+    source: "Firemniprofil.cz",
+  },
+  {
+    name: "Jonáš",
+    text: "Pan Ferenc přijel, zaměřil si místnost a následný 2 den nám vymaloval byt, + odstranil plíseň v bytě. Vše bylo v pořádku. Doporučuji.",
+    source: "Firemniprofil.cz",
+  },
+  {
+    name: "David",
+    text: "Vřele doporučuji. Kontakt uchovávám a až budu cokoliv potřebovat, rád se obrátím na služby p. Ference. Vymaloval nám byt 3+1 za pouhý 1 den. Doporučuji.",
+    source: "Firemniprofil.cz",
+  },
+  {
+    name: "Tomas",
+    text: "Potřeboval jsem natřít fasádu, kluci si vše oblepili a vymalovali tak, jak jsem si představoval. Komunikace jasná a dodržena. Perfektní řemeslník.",
+    source: "Firemniprofil.cz",
+  },
+  {
+    name: "Nela",
+    text: "S prací P. Ference jsem velice spokojena. Odstranil nám plíseň v celém bytě a následně položil novou podlahu. Komunikace byla vždy jasná a přesná, cena byla dodržena. Doporučuji všemi deseti.",
+    source: "Firemniprofil.cz",
+  },
+];
 
 export const SERVICE_OPTIONS = [
   "Malířské práce",

@@ -23,6 +23,17 @@ Moderní, profesionální a důvěryhodný web pro MAFER – malířské a úkli
 - Recenze: záměrně prázdné (žádné vymyšlené) – prázdný stav s odkazy na profily; doplnění přes REVIEWS v content.js.
 - 3 podstránky služeb, GDPR + obchodní podmínky, sticky mobilní CTA, hamburger menu, SEO meta + LocalBusiness JSON-LD.
 
+## Iterace 2 (2026-07): zjednodušení a konverze
+- Hero zkrácen: headline „Malování, úklid a vyklízení bez starostí", primární CTA „Zavolat MAFER" (tel), sekundární „Nezávazná poptávka"
+- Služby: 4 rovnocenné bloky (Malířské práce – vč. viditelného odstranění plísní, Úklid, Vyklízení, Další řemeslné práce); marquee odstraněna
+- Galerie: bez filtrů, jedna masonry sekce „Ukázky naší práce" + lightbox; výměna fotek = editace GALLERY v content.js
+- Recenze: 5 skutečných recenzí z veřejného profilu (zdroj Firemniprofil.cz – Roman Č., Jonáš, David, Tomas, Nela) jako auto-carousel (4,5 s, šipky, tečky, swipe/drag, pauza na hover)
+- Z homepage odebrány: Proč MAFER, Před/Po, Proces, Důvěra, CtaBanner (komponenty zůstávají v kódu pro pozdější použití)
+- Nové CTA pásy (CtaStrip) po službách a pod galerií: Zavolat MAFER + Nezávazně poptat
+- Facebook: https://www.facebook.com/matisek.ferenc (footer, target _blank)
+- Navigace: Úvod, Služby, Galerie, Recenze, Kontakt
+- Ověřeno screenshoty: hero, 4 karty služeb, CTA pásy, galerie bez filtrů, carousel (auto i ruční přepínání), Facebook link
+
 ## Backlog
 - P0: Doplnit skutečné fotografie realizací (galerie, hero, před/po), skutečný certifikát, skutečné recenze, odkaz na Facebook profil.
 - P1: AI-generované fotografie na míru (uživatel zvolil kombinaci stock + AI), OG image, favicon MAFER, admin přehled poptávek.

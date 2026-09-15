@@ -1,85 +1,147 @@
-import { Star, MessageSquareQuote, ExternalLink } from "lucide-react";
-import { Reveal, SectionHeading } from "@/components/Reveal";
-import { REVIEWS, CONTACT } from "@/data/content";
+import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { REVIEWS } from "@/data/content";
+
+const AUTOPLAY_MS = 4500;
 
 const Stars = () => (
-  <div className="flex gap-1" aria-label="5 z 5 hvězdiček">
+  <div className="flex gap-1 justify-center" aria-label="5 z 5 hvězdiček">
     {Array.from({ length: 5 }).map((_, i) => (
-      <Star key={i} size={16} className="fill-[#D97706] text-[#D97706]" />
+      <Star key={i} size={18} className="fill-[#D97706] text-[#D97706]" />
     ))}
   </div>
 );
 
-const Reviews = () => (
-  <section data-testid="reviews-section" className="py-24 md:py-32 bg-[#0A0A0C]">
-    <div className="max-w-7xl mx-auto px-5 sm:px-8">
-      <SectionHeading
-        id="reviews"
-        overline="Recenze"
-        title="Co říkají zákazníci"
-      />
+const Reviews = () => {
+  const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState(1);
+  const [paused, setPaused] = useState(false);
+  const count = REVIEWS.length;
 
-      {REVIEWS.length === 0 ? (
-        <Reveal>
-          <div
-            data-testid="reviews-empty-state"
-            className="rounded-2xl border-2 border-dashed border-[#272A35] bg-[#121316] p-10 md:p-14 text-center"
-          >
-            <div className="mx-auto w-14 h-14 rounded-2xl bg-[#1A1C23] border border-[#272A35] flex items-center justify-center mb-5">
-              <MessageSquareQuote size={24} className="text-[#D97706]" />
-            </div>
-            <h3 className="font-display text-2xl font-bold text-white tracking-tight">
-              Recenze právě připravujeme
-            </h3>
-            <p className="mt-3 max-w-lg mx-auto text-[#A1A1AA] text-sm md:text-base leading-relaxed">
-              Zobrazujeme pouze skutečné, ověřitelné recenze. Mezitím si můžete
-              prohlédnout naše veřejné firemní profily.
+  const go = useCallback(
+    (d) => {
+      setDir(d);
+      setIndex((i) => (i + d + count) % count);
+    },
+    [count]
+  );
+
+  useEffect(() => {
+    if (paused || count < 2) return;
+    const t = setInterval(() => go(1), AUTOPLAY_MS);
+    return () => clearInterval(t);
+  }, [paused, go, count]);
+
+  if (!count) return null;
+  const r = REVIEWS[index];
+
+  return (
+    <section id="recenze" data-testid="reviews-section" className="py-24 md:py-32 bg-[#0A0A0C]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#D97706] mb-4">
+              Recenze
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <a
-                href={CONTACT.profiles.firemniProfil}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="reviews-link-firemniprofil"
-                className="inline-flex items-center gap-2 rounded-full bg-[#1A1C23] border border-[#272A35] hover:border-[#D97706]/60 px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Co říkají naši zákazníci
+            </h2>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <div className="mt-5 flex flex-col items-center gap-2">
+              <Stars />
+              <p className="text-sm text-[#A1A1AA]">
+                Ověřené zkušenosti zákazníků z veřejného firemního profilu
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1}>
+          <div
+            className="max-w-3xl mx-auto"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            data-testid="reviews-carousel"
+          >
+            <div className="rounded-2xl border border-[#272A35] bg-[#121316] px-7 py-10 md:px-14 md:py-14 min-h-[320px] flex flex-col overflow-hidden">
+              <Quote size={36} className="text-[#D97706] mb-6 shrink-0" strokeWidth={1.5} />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.figure
+                  key={index}
+                  initial={{ opacity: 0, x: dir * 48 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: dir * -48 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.25}
+                  onDragEnd={(e, info) => {
+                    if (info.offset.x < -60) go(1);
+                    else if (info.offset.x > 60) go(-1);
+                  }}
+                  className="flex-1 flex flex-col cursor-grab active:cursor-grabbing touch-pan-y"
+                  data-testid={`review-slide-${index}`}
+                >
+                  <blockquote className="flex-1 font-display text-xl md:text-2xl font-medium text-white leading-relaxed">
+                    „{r.text}“
+                  </blockquote>
+                  <figcaption className="mt-8 flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-full bg-[#D97706]/15 border border-[#D97706]/40 flex items-center justify-center font-display font-bold text-[#D97706] shrink-0">
+                      {r.name.charAt(0)}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-bold text-white">{r.name}</span>
+                      <span className="block text-xs text-[#71717A]">{r.source}</span>
+                    </span>
+                  </figcaption>
+                </motion.figure>
+              </AnimatePresence>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-5">
+              <button
+                data-testid="reviews-prev"
+                onClick={() => go(-1)}
+                aria-label="Předchozí recenze"
+                className="w-10 h-10 rounded-full border border-[#272A35] hover:border-[#D97706] hover:bg-[#D97706] text-[#A1A1AA] hover:text-[#0A0A0C] flex items-center justify-center transition-colors"
               >
-                Firemniprofil.cz <ExternalLink size={14} />
-              </a>
-              <a
-                href={CONTACT.profiles.nejRemeslnici}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="reviews-link-nejremeslnici"
-                className="inline-flex items-center gap-2 rounded-full bg-[#1A1C23] border border-[#272A35] hover:border-[#D97706]/60 px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+                <ChevronLeft size={18} />
+              </button>
+              <div className="flex gap-2" data-testid="reviews-dots">
+                {REVIEWS.map((rev, i) => (
+                  <button
+                    key={rev.name}
+                    data-testid={`reviews-dot-${i}`}
+                    onClick={() => {
+                      setDir(i > index ? 1 : -1);
+                      setIndex(i);
+                    }}
+                    aria-label={`Recenze ${i + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === index ? "w-8 bg-[#D97706]" : "w-1.5 bg-[#3F3F46] hover:bg-[#71717A]"
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                data-testid="reviews-next"
+                onClick={() => go(1)}
+                aria-label="Další recenze"
+                className="w-10 h-10 rounded-full border border-[#272A35] hover:border-[#D97706] hover:bg-[#D97706] text-[#A1A1AA] hover:text-[#0A0A0C] flex items-center justify-center transition-colors"
               >
-                NejRemeslnici.cz <ExternalLink size={14} />
-              </a>
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
         </Reveal>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {REVIEWS.map((r, i) => (
-            <Reveal key={i} delay={i * 0.08}>
-              <figure
-                data-testid={`review-card-${i}`}
-                className="h-full rounded-2xl border border-[#272A35] bg-[#121316] p-7"
-              >
-                <Stars />
-                <blockquote className="mt-4 text-[#D4D4D8] text-sm leading-relaxed">
-                  „{r.text}“
-                </blockquote>
-                <figcaption className="mt-5 text-xs text-[#71717A]">
-                  <span className="text-white font-semibold">{r.name}</span> · {r.date}
-                  {r.source && <> · {r.source}</>}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      )}
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};
 
 export default Reviews;

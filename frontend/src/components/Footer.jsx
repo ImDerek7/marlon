@@ -69,7 +69,7 @@ const Footer = () => (
               { label: "Úvod", to: "/#uvod" },
               { label: "Služby", to: "/#sluzby" },
               { label: "Galerie", to: "/#galerie" },
-              { label: "O nás", to: "/#proc-mafer" },
+              { label: "Recenze", to: "/#recenze" },
               { label: "Kontakt", to: "/#kontakt" },
             ].map((l) => (
               <li key={l.label}>

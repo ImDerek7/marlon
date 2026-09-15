@@ -8,7 +8,7 @@ const LINKS = [
   { label: "Úvod", hash: "#uvod" },
   { label: "Služby", hash: "#sluzby" },
   { label: "Galerie", hash: "#galerie" },
-  { label: "Proč MAFER", hash: "#proc-mafer" },
+  { label: "Recenze", hash: "#recenze" },
   { label: "Kontakt", hash: "#kontakt" },
 ];
 
