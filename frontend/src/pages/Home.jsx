@@ -22,8 +22,8 @@ export default function Home() {
       <Gallery />
       <CtaStrip
         testid="cta-after-gallery"
-        title="Chcete podobný výsledek?"
-        text="Nechte si nezávazně nacenit vaši zakázku."
+        title="Líbí se vám naše práce?"
+        text="Domluvte si nezávaznou poptávku."
       />
       <Reviews />
       <InquiryForm />

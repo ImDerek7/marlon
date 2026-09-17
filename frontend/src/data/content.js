@@ -122,25 +122,23 @@ export const GALLERY_CATEGORIES = [
   { key: "predpo", label: "Před / Po" },
 ];
 
-// Pozn.: aktuálně ilustrační fotografie – po dodání skutečných fotek realizací
-// stačí vyměnit URL v tomto seznamu.
+// Skutečné fotografie realizací MAFER (soubory v public/gallery/).
+// Nové fotky: nahrajte do public/gallery/ a přidejte řádek sem.
+// span = velikost dlaždice na desktopu (grid 6 sloupců), mob = výška na mobilu.
 export const GALLERY = [
-  { id: "g1", cat: "malovani", src: u("photo-1598300042247-d088f8ab3a91"), title: "Malování interiéru" },
-  { id: "g2", cat: "malovani", src: u("photo-1562259949-e8e7689d7828"), title: "Natírání stěny" },
-  { id: "g3", cat: "malovani", src: u("photo-1622560480605-d83c853bc5c3"), title: "Malířské práce" },
-  { id: "g4", cat: "interiery", src: u("photo-1600210492486-724fe5c67fb0"), title: "Vymalovaný obývák" },
-  { id: "g5", cat: "interiery", src: u("photo-1616486338812-3dadae4b4ace"), title: "Moderní interiér" },
-  { id: "g6", cat: "interiery", src: u("photo-1600607687939-ce8a6c25118c"), title: "Světlý interiér" },
-  { id: "g7", cat: "interiery", src: u("photo-1615873968403-89e068629265"), title: "Ložnice po renovaci" },
-  { id: "g8", cat: "uklid", src: u("photo-1581578731548-c64695cc6952"), title: "Profesionální úklid" },
-  { id: "g9", cat: "uklid", src: u("photo-1563453392212-326f5e854473"), title: "Úklidová technika" },
-  { id: "g10", cat: "uklid", src: u("photo-1628744876497-eb30460be9f6"), title: "Uklizený interiér" },
-  { id: "g11", cat: "vyklizeni", src: u("photo-1600518464441-9154a4dea21b"), title: "Stěhování a vyklízení" },
-  { id: "g12", cat: "vyklizeni", src: u("photo-1587293852726-70cdb56c2866"), title: "Odvoz věcí" },
-  { id: "g13", cat: "lakyrnicke", src: u("photo-1616627561950-9f746e330187"), title: "Lakování nábytku" },
-  { id: "g14", cat: "lakyrnicke", src: u("photo-1595428774223-ef52624120d2"), title: "Renovace interiéru" },
-  { id: "g15", cat: "predpo", src: u("photo-1504307651254-35680f356dfd"), title: "Před realizací" },
-  { id: "g16", cat: "predpo", src: u("photo-1631679706909-1844bbd07221"), title: "Po realizaci" },
+  { id: "f01", src: "/gallery/f01.jpg", title: "Úklid podlah v prodejně", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f02", src: "/gallery/f02.jpg", title: "Pokoj před malováním", span: "md:col-span-4 md:row-span-2", mob: "row-span-1" },
+  { id: "f03", src: "/gallery/f03.jpg", title: "Stěny před renovací", span: "md:col-span-3 md:row-span-2", mob: "row-span-1" },
+  { id: "f04", src: "/gallery/f04.jpg", title: "Vymalovaný pokoj se zelenou stěnou", span: "md:col-span-3 md:row-span-2", mob: "row-span-1" },
+  { id: "f05", src: "/gallery/f05.jpg", title: "Sanace zvětralé zdi", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f06", src: "/gallery/f06.jpg", title: "Plot před nátěrem", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f07", src: "/gallery/f07.jpg", title: "Prodejna po generálním úklidu", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f08", src: "/gallery/f08.jpg", title: "Schodiště během prací", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f09", src: "/gallery/f09.jpg", title: "Vymalovaný pokoj", span: "md:col-span-4 md:row-span-2", mob: "row-span-1" },
+  { id: "f10", src: "/gallery/f10.jpg", title: "Renovace židle – lakování", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f11", src: "/gallery/f11.jpg", title: "Místnost po vymalování", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f12", src: "/gallery/f12.jpg", title: "Plot po nátěru", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f13", src: "/gallery/f13.jpg", title: "Židle před renovací", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
 ];
 
 export const PROCESS_STEPS = [

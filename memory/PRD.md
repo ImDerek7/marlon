@@ -34,6 +34,16 @@ Moderní, profesionální a důvěryhodný web pro MAFER – malířské a úkli
 - Navigace: Úvod, Služby, Galerie, Recenze, Kontakt
 - Ověřeno screenshoty: hero, 4 karty služeb, CTA pásy, galerie bez filtrů, carousel (auto i ruční přepínání), Facebook link
 
+## Iterace 3 (2026-07): skutečné fotografie v galerii
+- Nasazeno 13 skutečných fotek realizací z fotky.zip (malování pokojů, sanace zdí, nátěry plotů, renovace židlí, úklid prodejny) do public/gallery/f01–f13.jpg
+- Galerie přestavěna na asymetrické portfolio: CSS grid 6 sloupců (desktop), velké a malé dlaždice podle orientace (4 na šířku, 9 na výšku), grid-flow-dense; mobil 2 sloupce s vlastním řazením
+- Závěrečná zlatá CTA dlaždice „Vaše zakázka může být další." přímo v mřížce galerie
+- Lightbox doplněn o Zoom plugin
+- Nové CTA pod galerií: „Líbí se vám naše práce? Domluvte si nezávaznou poptávku."
+- Fotky bez jakýchkoli úprav (pouze přejmenování .jfif → .jpg), ověřeno: 13/13 se načítá, 0 broken
+- Přidání dalších fotek: nahrát do public/gallery/ + řádek do GALLERY v src/data/content.js
+- NEUZAVŘENO: AI (ChatGPT) integrace – uživateli položeny doplňující otázky (účel: chat asistent / pomocník ve formuláři / odhad; model; klíč), čeká se na odpověď
+
 ## Backlog
 - P0: Doplnit skutečné fotografie realizací (galerie, hero, před/po), skutečný certifikát, skutečné recenze, odkaz na Facebook profil.
 - P1: AI-generované fotografie na míru (uživatel zvolil kombinaci stock + AI), OG image, favicon MAFER, admin přehled poptávek.

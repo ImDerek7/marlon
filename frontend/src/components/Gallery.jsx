@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-import { Expand } from "lucide-react";
+import { Expand, ArrowUpRight } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import { GALLERY } from "@/data/content";
 
-// Skutečné fotografie realizací MAFER: stačí vyměnit URL v GALLERY
-// v souboru src/data/content.js – struktura galerie zůstane stejná.
 const Gallery = () => {
   const [index, setIndex] = useState(-1);
 
@@ -17,35 +16,54 @@ const Gallery = () => {
           id="gallery"
           overline="Galerie"
           title="Ukázky naší práce"
-          text="Fotografie skutečných realizací MAFER budou brzy doplněny – aktuálně ilustrační ukázky."
+          text="Skutečné realizace MAFER – malování, úklid, renovace i nátěry. Fotografie pochází přímo z našich zakázek."
         />
 
-        <div className="columns-2 md:columns-3 gap-4 [column-fill:balance]" data-testid="gallery-grid">
+        <div
+          className="grid grid-cols-2 md:grid-cols-6 grid-flow-dense gap-3 md:gap-4 auto-rows-[130px] sm:auto-rows-[160px] md:auto-rows-[190px]"
+          data-testid="gallery-grid"
+        >
           {GALLERY.map((g, i) => (
-            <Reveal key={g.id} delay={(i % 3) * 0.06} className="mb-4 break-inside-avoid">
+            <Reveal key={g.id} delay={(i % 4) * 0.05} className={`${g.mob} ${g.span}`}>
               <button
                 data-testid={`gallery-item-${g.id}`}
                 onClick={() => setIndex(i)}
-                className="group relative block w-full overflow-hidden rounded-xl border border-[#272A35] hover:border-[#D97706]/60 transition-colors"
+                className="group relative block w-full h-full overflow-hidden rounded-xl border border-[#272A35] hover:border-[#D97706]/60 transition-colors"
               >
                 <img
                   src={g.src}
                   alt={g.title}
                   loading="lazy"
-                  className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-[#0A0A0C]/0 group-hover:bg-[#0A0A0C]/45 transition-colors duration-300 flex items-end justify-between p-4">
-                  <span className="text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">
                     {g.title}
                   </span>
                   <Expand
                     size={18}
-                    className="text-[#D97706] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="text-[#D97706] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
                   />
                 </div>
               </button>
             </Reveal>
           ))}
+
+          <Reveal delay={0.1} className="col-span-2 md:col-span-4 md:row-span-2">
+            <a
+              href="#kontakt"
+              data-testid="gallery-cta-tile"
+              className="group flex flex-col justify-between w-full h-full min-h-[130px] rounded-xl border border-[#D97706]/40 bg-[#D97706]/10 hover:bg-[#D97706]/20 p-6 md:p-8 transition-colors"
+            >
+              <p className="font-display text-xl md:text-2xl font-bold text-white tracking-tight max-w-xs">
+                Vaše zakázka může být další.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wider text-[#F59E0B]">
+                Nezávazně poptat
+                <ArrowUpRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </span>
+            </a>
+          </Reveal>
         </div>
       </div>
 
@@ -54,6 +72,7 @@ const Gallery = () => {
         close={() => setIndex(-1)}
         index={index}
         slides={GALLERY.map((g) => ({ src: g.src, title: g.title }))}
+        plugins={[Zoom]}
         styles={{ container: { backgroundColor: "rgba(10,10,12,0.95)" } }}
       />
     </section>
