@@ -2,9 +2,9 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-import { Expand, ArrowUpRight } from "lucide-react";
+import { Expand, ArrowUpRight, Phone } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { GALLERY } from "@/data/content";
+import { GALLERY, CONTACT } from "@/data/content";
 
 const Gallery = () => {
   const [index, setIndex] = useState(-1);
@@ -50,19 +50,31 @@ const Gallery = () => {
           ))}
 
           <Reveal delay={0.1} className="col-span-2 md:col-span-4 md:row-span-2">
-            <a
-              href="#kontakt"
+            <div
               data-testid="gallery-cta-tile"
-              className="group flex flex-col justify-between w-full h-full min-h-[130px] rounded-xl border border-[#D97706]/40 bg-[#D97706]/10 hover:bg-[#D97706]/20 p-6 md:p-8 transition-colors"
+              className="flex flex-col justify-between w-full h-full min-h-[130px] rounded-xl border border-[#D97706]/40 bg-[#D97706]/10 p-6 md:p-8"
             >
               <p className="font-display text-xl md:text-2xl font-bold text-white tracking-tight max-w-xs">
                 Vaše zakázka může být další.
               </p>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wider text-[#F59E0B]">
-                Nezávazně poptat
-                <ArrowUpRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </span>
-            </a>
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <a
+                  href={CONTACT.phoneHref}
+                  data-testid="gallery-cta-call"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#D97706] hover:bg-[#F59E0B] text-[#0A0A0C] text-xs font-extrabold uppercase tracking-wider px-5 py-2.5 transition-colors"
+                >
+                  <Phone size={14} strokeWidth={2.5} /> Zavolat
+                </a>
+                <a
+                  href="#kontakt"
+                  data-testid="gallery-cta-quote"
+                  className="group inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wider text-[#F59E0B] hover:text-white transition-colors"
+                >
+                  Nezávazně poptat
+                  <ArrowUpRight size={16} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>
