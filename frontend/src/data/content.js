@@ -126,7 +126,7 @@ export const GALLERY_CATEGORIES = [
 // Nové fotky: nahrajte do public/gallery/ a přidejte řádek sem.
 // span = velikost dlaždice na desktopu (grid 6 sloupců), mob = výška na mobilu.
 export const GALLERY = [
-  { id: "f01", src: "/gallery/f01.jpg", title: "Úklid podlah v prodejně", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
+  { id: "f01", src: "/gallery/f01.jpg", title: "Renovace podlah v prodejně", span: "md:col-span-2 md:row-span-2", mob: "row-span-2" },
   { id: "f02", src: "/gallery/f02.jpg", title: "Pokoj před malováním", span: "md:col-span-4 md:row-span-2", mob: "row-span-1" },
   { id: "f03", src: "/gallery/f03.jpg", title: "Stěny před renovací", span: "md:col-span-3 md:row-span-2", mob: "row-span-1" },
   { id: "f04", src: "/gallery/f04.jpg", title: "Vymalovaný pokoj se zelenou stěnou", span: "md:col-span-3 md:row-span-2", mob: "row-span-1" },
